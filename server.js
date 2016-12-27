@@ -5,7 +5,8 @@ const
   path = require("path"),
   bodyParser = require("body-parser"),
   extractor = require('unfluff'),
-  atob = require('atob');
+  atob = require('atob'),
+  fetch = require('node-fetch');
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
@@ -28,14 +29,23 @@ app.get("/extract-content", function(req, res) {
   }
   var from = atob(req.query.from);
   console.log("/extract-content, got from: " + from);
-  var data = extractor(from);
-  console.log(data.text);
-  res.status(200).json(
-      {
-        "result": "success",
-        "message": "GET /extract-content processed, see logs"
-      }
-    );
+  fetch(from)
+    .then(function(fetchres) {
+      return fetchres.text();
+    })
+    .then(function(body) {
+      var data = extractor(body);
+      console.log(data.text);
+      res.status(200).json(
+          {
+            "result": "success",
+            "message": "GET /extract-content processed, see logs"
+          }
+        );
+    })
+    .catch(function(err) {
+      handleError(res, err, "/extract-content node-fetch failed");
+    })
 });
 
 /*  "/test"
