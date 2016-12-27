@@ -3,7 +3,10 @@
 const
   express = require("express"),
   path = require("path"),
-  bodyParser = require("body-parser");
+  bodyParser = require("body-parser"),
+  extractor = require('unfluff'),
+  btoa = require('btoa'),
+  atob = require('atob');
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
@@ -16,6 +19,23 @@ function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
   res.status(code || 500).json({"error": message});
 }
+
+/*
+ *
+ */
+app.get("/extract-content", function(req, res) {
+  if (!req.query.from) {
+    handleError(res, "/extract-content No from query", "Extract content: missing from query parameter");
+  }
+  var from = atob(req.query.from);
+  console.log("/extract-content, got from: " + from);
+  res.status(200).json(
+      {
+        "result": "success",
+        "message": "GET /extract-content contains from query parameter"
+      }
+    );
+});
 
 /*  "/test"
  *    GET: tests this server is operational
