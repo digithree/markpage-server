@@ -1,13 +1,15 @@
-var express = require("express");
-var path = require("path");
-var bodyParser = require("body-parser");
+'use strict';
+
+const
+  express = require("express"),
+  path = require("path"),
+  bodyParser = require("body-parser");
 
 var app = express();
+app.set('port', process.env.PORT || 5000);
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
-
-// CONTACTS API ROUTES BELOW
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
@@ -28,3 +30,11 @@ app.get("/test", function(req, res) {
       }
     );
 });
+
+
+// Start server
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+
+module.exports = app;
