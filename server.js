@@ -6,6 +6,7 @@ const
   bodyParser = require("body-parser"),
   extractor = require('unfluff'),
   atob = require('atob'),
+  btoa = require('btoa')
   fetch = require('node-fetch');
 
 var app = express();
@@ -35,16 +36,18 @@ app.get("/extract-content", function(req, res) {
     })
     .then(function(body) {
       var data = extractor(body);
-      console.log(JSON.stringify(data));
+      console.log("Got data from webpage with title: "+data.title());
+      var dataB64 = bota(JSON.stringify(data));
       res.status(200).json(
           {
             "result": "success",
-            "message": "GET /extract-content processed, see logs"
+            "message": "GET /extract-content processed",
+            "data": dataB64
           }
         );
     })
     .catch(function(err) {
-      handleError(res, err, "/extract-content node-fetch failed");
+      handleError(res, err, "/extract-content node-fetch and context extraction failed");
     })
 });
 
