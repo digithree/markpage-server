@@ -37,7 +37,7 @@ app.get("/extract-content", function(req, res) {
     .then(function(body) {
       var data = extractor(body);
       console.log("Got data from webpage with title: "+data.title);
-      var dataB64 = bota(JSON.stringify(data));
+      var dataB64 = btoa(JSON.stringify(data));
       res.status(200).json(
           {
             "result": "success",
