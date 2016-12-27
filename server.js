@@ -35,7 +35,7 @@ app.get("/extract-content", function(req, res) {
     })
     .then(function(body) {
       var data = extractor(body);
-      console.log(data.text);
+      console.log(JSON.parse(data));
       res.status(200).json(
           {
             "result": "success",
