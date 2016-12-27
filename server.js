@@ -6,7 +6,7 @@ const
   bodyParser = require("body-parser"),
   extractor = require('unfluff'),
   atob = require('atob'),
-  btoa = require('btoa')
+  btoa = require('btoa'),
   fetch = require('node-fetch');
 
 var app = express();
