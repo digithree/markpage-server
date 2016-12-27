@@ -38,7 +38,7 @@ app.get("/extract-content", function(req, res) {
       var data = extractor(body);
       console.log("Got data from webpage with title: "+data.title);
       var format = "full";
-      if (!req.query.format) {
+      if (req.query.format) {
         format = req.query.format;
       }
       if (format.localeCompare("content-only") == 0) {
