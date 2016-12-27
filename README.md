@@ -1,6 +1,6 @@
 # MarkPage Server
 
-![](/icons/markpage.png)
+![](/public/markpage.png)
 
 Server which supports the Firefox WebExtensions plugin MarkPage. Please see the [MarkPage GitHub](https://github.com/digithree/markpage) repo for more information.
 
