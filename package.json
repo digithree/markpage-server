@@ -1,6 +1,6 @@
 {
   "name": "MarkPage-Server",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Server for MarkPage, a webpage highlighting tool. Currently used only to extract content from webpages. NOTE: THIS CONTENT IS NOT STORED.",
   "main": "server.js",
   "scripts": {
