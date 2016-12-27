@@ -28,10 +28,12 @@ app.get("/extract-content", function(req, res) {
   }
   var from = atob(req.query.from);
   console.log("/extract-content, got from: " + from);
+  var data = extractor(from);
+  console.log(data.text);
   res.status(200).json(
       {
         "result": "success",
-        "message": "GET /extract-content contains from query parameter"
+        "message": "GET /extract-content processed, see logs"
       }
     );
 });
