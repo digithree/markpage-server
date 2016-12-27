@@ -5,7 +5,6 @@ const
   path = require("path"),
   bodyParser = require("body-parser"),
   extractor = require('unfluff'),
-  btoa = require('btoa'),
   atob = require('atob');
 
 var app = express();
