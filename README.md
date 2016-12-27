@@ -35,4 +35,4 @@ You can deploy a live copy of this application to Heroku with the button below.
 *16.12.27 - v0.0.1*
 
 - Create project with only test endpoint.
-- Note that there will be lots of commits as in order to deploy to Heroku I must make a commit. I will keep these on minor version branches and cherry-pick into develop branch. Major versions will be full merge to master branch when ready.
+- Note that there will be lots of commits as in order to deploy to Heroku I must make a commit. Minor version branches will be used and merged into develop branch when minor version reached. Major versions will be full merge to master branch when ready.
