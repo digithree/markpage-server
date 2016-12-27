@@ -41,7 +41,7 @@ app.get("/extract-content", function(req, res) {
       if (!req.query.format) {
         format = req.query.format;
       }
-      if (format == "content-only") {
+      if (format.localeCompare("content-only") == 0) {
         var dataB64 = btoa(JSON.stringify(data.text));
         res.status(200).json(
             {
