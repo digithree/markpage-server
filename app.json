@@ -1,0 +1,6 @@
+{
+  "name": "MarkPage-Server",
+  "description": "Server for MarkPage, a webpage highlighting tool. Currently used only to extract content from webpages. NOTE: THIS CONTENT IS NOT STORED.",
+  "repository": "https://github.com/digithree/markpage-server",
+  "keywords": ["node", "markpage", "server", "content extraction"]
+}
