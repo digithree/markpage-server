@@ -37,14 +37,29 @@ app.get("/extract-content", function(req, res) {
     .then(function(body) {
       var data = extractor(body);
       console.log("Got data from webpage with title: "+data.title);
-      var dataB64 = btoa(JSON.stringify(data));
-      res.status(200).json(
-          {
-            "result": "success",
-            "message": "GET /extract-content processed",
-            "data": dataB64
-          }
-        );
+      var format = "full";
+      if (!req.query.format) {
+        format = req.query.format;
+      }
+      if (format == "content-only") {
+        var dataB64 = btoa(JSON.stringify(data.text));
+        res.status(200).json(
+            {
+              "result": "success",
+              "message": "GET /extract-content processed, format content-only",
+              "data": dataB64
+            }
+          );
+      } else {
+        var dataB64 = btoa(JSON.stringify(data));
+        res.status(200).json(
+            {
+              "result": "success",
+              "message": "GET /extract-content processed, format full",
+              "data": dataB64
+            }
+          );
+      }
     })
     .catch(function(err) {
       handleError(res, err, "/extract-content node-fetch and context extraction failed");
