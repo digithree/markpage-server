@@ -46,8 +46,8 @@ Params:
 
 - _from_ (required), Base64 encoded URL of webpage to extract content from
 - _format_ (optional) [default: full]
--- full, response will contain entire content extration JSON object as supplied by node-unfluff
--- content-only, response will contain the extracted text body content only
+- - full, response will contain entire content extration JSON object as supplied by node-unfluff
+- - content-only, response will contain the extracted text body content only
 
 # Deploy to Heroku
 
