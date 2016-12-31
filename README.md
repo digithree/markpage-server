@@ -24,6 +24,31 @@ Instead the server will give the user a unique private key for their post which 
 
 We may allow a couple of hashtags to be attached to a post in order to facilitate viewing better, but the usage of any personally identifying information is strongly discouraged.
 
+## Usage
+
+You can test this server in a live Heroku app at [https://markpage-server.herokuapp.com/](https://markpage-server.herokuapp.com/). This is currently being used by the MarkPage plugin. _Please use it responsibly_.
+
+**Endpoints**
+
+### GET /
+
+index.html, default skeleton info
+
+### GET /test
+
+test express endpoint routing is working and server is alive
+
+### GET /extract-content
+
+Extract content from a webpage and respond with extracted data
+
+Params:
+
+- _from_ (required), Base64 encoded URL of webpage to extract content from
+- _format_ (optional) [default: full]
+-- full, response will contain entire content extration JSON object as supplied by node-unfluff
+-- content-only, response will contain the extracted text body content only
+
 # Deploy to Heroku
 
 You can deploy a live copy of this application to Heroku with the button below.
@@ -31,6 +56,12 @@ You can deploy a live copy of this application to Heroku with the button below.
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/digithree/web-db-intermediary)
 
 ## Changelog
+
+*16.12.31
+- Update readme only
+
+*16.12.27 - v0.1.0*
+- GET /extract-content endpoint implemented
 
 *16.12.27 - v0.0.1*
 
